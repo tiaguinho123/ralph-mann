@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Star, Phone, Calendar, Zap } from 'lucide-react';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
@@ -19,10 +20,11 @@ export default function Hero() {
           width="2075"
           height="1383"
         />
+        {/* Subtle overlay — dark enough for text readability, light enough to show the photo */}
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(to right, ${colors.dark}F8 0%, ${colors.dark}D9 50%, ${colors.dark}4D 100%)`
+            background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.15) 100%)'
           }}
         />
       </div>
@@ -45,31 +47,33 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl w-full"
           >
-            {/* Pattern 2 — Review Count Anchor */}
-            <a
-              href={reviews.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View our ${reviews.count} Google reviews, rated ${reviews.rating} stars`}
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8 shadow-xl hover:bg-white/15 transition-colors"
-            >
-              <div className="flex gap-0.5" aria-hidden="true">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="text-white text-sm font-semibold">
-                {reviews.rating} stars ·{' '}
-                <span className="font-bold" style={{ color: colors.primaryHex }}>
-                  {reviews.count} Google Reviews
+            {/* Only show review badge when we have a real count */}
+            {reviews.count > 0 && (
+              <a
+                href={reviews.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View our ${reviews.count} Google reviews, rated ${reviews.rating} stars`}
+                className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8 shadow-xl hover:bg-white/15 transition-colors"
+              >
+                <div className="flex gap-0.5" aria-hidden="true">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <span className="text-white text-sm font-semibold">
+                  {reviews.rating} stars ·{' '}
+                  <span className="font-bold" style={{ color: colors.primaryHex }}>
+                    {reviews.count} Google Reviews
+                  </span>
                 </span>
-              </span>
-            </a>
+              </a>
+            )}
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-4 md:mb-6 leading-[1.08]">
               {hero.headline.map((line, i) =>
                 i === hero.accentLine ? (
                   <span key={i} style={{ color: colors.primaryHex }}>{line}<br /></span>
@@ -79,23 +83,23 @@ export default function Hero() {
               )}
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-300 mb-4 max-w-2xl leading-relaxed font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-300 mb-3 max-w-2xl leading-relaxed font-light">
               {hero.valueProp}
             </p>
-            <p className="text-base text-slate-400 mb-10 max-w-xl leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-400 mb-8 max-w-xl leading-relaxed">
               {hero.subText}
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl transition-all shadow-xl hover:-translate-y-0.5"
-                style={{ backgroundColor: colors.primaryHex, color: '#0F172A' }}
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl transition-all shadow-xl hover:-translate-y-0.5 text-white"
+                style={{ backgroundColor: colors.primaryHex }}
               >
                 <Calendar className="w-5 h-5 mr-2" aria-hidden="true" />
                 {hero.primaryCTA}
-              </a>
+              </Link>
               <a
                 href={`tel:${phone}`}
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white/10 text-white hover:bg-white/20 border border-white/25 backdrop-blur-md transition-all hover:-translate-y-0.5"
@@ -106,8 +110,8 @@ export default function Hero() {
             </div>
 
             {/* Pattern 7 — Emergency Banner */}
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-red-500/10 border border-red-400/30">
-              <span className="text-red-400 text-xl" aria-hidden="true">🔴</span>
+            <div className="flex flex-wrap items-start gap-3 px-4 sm:px-5 py-3 rounded-xl bg-red-500/10 border border-red-400/30">
+              <span className="text-red-400 text-lg" aria-hidden="true">🔴</span>
               <div>
                 <p className="text-white font-semibold text-sm">{hero.emergencyText}</p>
                 <a href={`tel:${phone}`} className="text-red-300 text-sm hover:text-red-200 transition-colors font-medium">

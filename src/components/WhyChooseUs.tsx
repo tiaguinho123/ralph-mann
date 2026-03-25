@@ -19,22 +19,10 @@ export default function WhyChooseUs() {
               <img
                 src={whyUs.imageUrl}
                 alt={whyUs.imageAlt}
-                className="w-full h-[600px] object-cover"
+                className="w-full h-auto object-contain"
                 loading="lazy"
                 decoding="async"
-                width="2069"
-                height="1380"
               />
-              <div
-                className="absolute inset-0"
-                style={{ background: `linear-gradient(to top, ${colors.dark}B3 0%, transparent 60%)` }}
-              />
-              <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white">
-                <div className="text-4xl font-bold mb-1" style={{ color: colors.primaryHex }}>
-                  {whyUs.yearsInBusiness}+
-                </div>
-                <div className="text-sm font-medium uppercase tracking-wider text-slate-200">{whyUs.yearsLabel}</div>
-              </div>
             </div>
           </motion.div>
 

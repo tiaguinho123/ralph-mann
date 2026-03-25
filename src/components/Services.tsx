@@ -1,9 +1,25 @@
 import { motion } from 'motion/react';
-import { Flame, Snowflake, Wind, Thermometer, CreditCard, ArrowRight } from 'lucide-react';
+import type { ElementType } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Flame, Snowflake, Wind, Thermometer, Droplets,
+  Zap, Leaf, Truck, ArrowRight
+} from 'lucide-react';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
-const iconMap: Record<string, React.ElementType> = {
-  Flame, Snowflake, Wind, Thermometer, CreditCard,
+const iconMap: Record<string, ElementType> = {
+  Flame, Snowflake, Wind, Thermometer, Droplets, Zap, Leaf, Truck,
+};
+
+const servicePathMap: Record<string, string> = {
+  'Plumbing': '/plumbing',
+  'Heating': '/heating',
+  'Air Conditioning': '/air-conditioning',
+  'Standby Generators': '/generators',
+  'Water Heaters': '/water-heaters',
+  'Geothermal': '/geothermal',
+  'Indoor Air Quality': '/indoor-air-quality',
+  'Fuel Oil Delivery': '/fuel-oil',
 };
 
 export default function Services() {
@@ -20,33 +36,34 @@ export default function Services() {
           <p className="text-lg text-slate-600">{servicesSubhead}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const Icon = iconMap[service.icon] ?? Flame;
+            const path = servicePathMap[service.title] ?? '/contact-us';
             return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-amber-200 transition-all group"
+                transition={{ delay: index * 0.07 }}
+                className="bg-white p-7 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-1 transition-all group"
               >
                 <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors"
-                  style={{ backgroundColor: `${colors.primaryHex}1A` }}
+                  className="w-13 h-13 rounded-xl flex items-center justify-center mb-5 transition-colors"
+                  style={{ backgroundColor: `${colors.primaryHex}18` }}
                 >
-                  <Icon className="w-7 h-7 transition-colors" style={{ color: colors.primaryHex }} aria-hidden="true" />
+                  <Icon className="w-7 h-7" style={{ color: colors.primaryHex }} aria-hidden="true" />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h4>
-                <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center font-semibold hover:opacity-80 transition-opacity"
+                <h4 className="text-lg font-bold text-slate-900 mb-2">{service.title}</h4>
+                <p className="text-slate-500 mb-5 text-sm leading-relaxed">{service.description}</p>
+                <Link
+                  to={path}
+                  className="inline-flex items-center text-sm font-semibold hover:opacity-80 transition-opacity"
                   style={{ color: colors.primaryHex }}
                 >
-                  {service.cta} <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-                </a>
+                  {service.cta} <ArrowRight className="w-4 h-4 ml-1" aria-hidden="true" />
+                </Link>
               </motion.div>
             );
           })}

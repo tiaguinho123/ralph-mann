@@ -1,8 +1,7 @@
-﻿// ============================================================
+// ============================================================
 // Ralph Mann & Sons, Inc.
-// Config scraped from: ralphmannandsons.com on 2026-03-21
-// Brand: Red #c0392b + Navy #1c2e6e on white
-// Founded: 1916 | 110 years in business | 4-gen family company
+// Config — content scraped ONLY from ralphmannandsons.com
+// Standard: nothing invented, nothing assumed.
 // ============================================================
 
 import type { SiteConfig } from './SiteConfig.types';
@@ -10,7 +9,7 @@ import type { SiteConfig } from './SiteConfig.types';
 export const config: SiteConfig = {
   // ─── Brand ───────────────────────────────────────────────
   businessName: 'Ralph Mann & Sons, Inc.',
-  tagline: 'Heating, Cooling & Plumbing — Ansonia, CT',
+  tagline: 'Plumbing, Heating, HVAC & More — Ansonia, CT',
   metaDescription:
     'Ralph Mann & Sons is a 4th-generation family company serving Ansonia, CT since 1916. Plumbing, heating, air conditioning, generators, geothermal & fuel oil. Call 1-800-995-6266.',
   logoText: {
@@ -19,7 +18,7 @@ export const config: SiteConfig = {
   },
   logoIcon: 'Flame',
 
-  // ─── Colors (scraped from ralphmannandsons.com) ───────────
+  // ─── Colors (from ralphmannandsons.com) ───────────────────
   colors: {
     primary: 'red-600',
     primaryHex: '#c0392b',
@@ -39,316 +38,207 @@ export const config: SiteConfig = {
     zip: '06401',
   },
   hours: {
-    weekdays: 'Mon–Fri: 7am – 6pm',
-    saturday: 'Sat: By Appointment',
+    weekdays: 'Mon–Fri: 8am – 4:30pm',
+    saturday: 'Emergency Service: 24/7',
     emergency: true,
   },
 
   // ─── SEO / Meta ──────────────────────────────────────────
   siteUrl: 'https://ralphmannandsons.com',
-  license: 'CT Licenses: HIC.0504051 · HTG.0303047-S1 · PLM.0203557-P1 · ELC.0123595-E1',
+  // All 7 licenses confirmed from every page footer on real site
+  license: 'CT Licenses: HIC.0504051 · HTG.0303047-S1 · HTG.0307938-ST1 · HOD.0000368 · FRP.0010753-F1 · PLM.0203557-P1 · ELC.0123595-E1',
 
   // ─── Hero ────────────────────────────────────────────────
   hero: {
-    headline: ['Connecticut\'s Most Trusted', 'Home Services Company', 'Since 1916'],
-    accentLine: 2,
-    valueProp: 'Four generations of family expertise — plumbing, heating, cooling & more.',
+    headline: ['Proudly Celebrating', '110 Years of Service!'],
+    accentLine: 1,
+    valueProp: 'Expert Plumbing, Heating & HVAC Services in Ansonia, CT',
     subText:
-      '24-Hour Emergency Service · Licensed & Insured · Serving 14+ towns across Naugatuck Valley, New Haven & Fairfield County.',
-    heroBgUrl:
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop',
-    primaryCTA: 'Get a Free Estimate',
+      'At Ralph Mann & Sons, Inc., your comfort is our top priority. For 110 years, our family-owned business has been a trusted name in plumbing, heating, and air conditioning services across Connecticut.',
+    heroBgUrl: '/rm-images/img4473.jpg',
+    primaryCTA: 'Schedule a Consultation',
     emergencyText: '24-Hour Emergency Service Available',
   },
 
   // ─── Offer Strip ─────────────────────────────────────────
   offer: {
     enabled: true,
-    emoji: '💡',
-    label: 'Up to $3,200 in Federal Tax Credits for energy-efficient upgrades. Call to learn more:',
+    emoji: '📞',
+    label: 'Help is only a phone call away!',
   },
 
   // ─── Reviews ─────────────────────────────────────────────
+  // Site does not publish a Google review count — showing rating only
   reviews: {
-    rating: 4.8,
-    count: 110,
+    rating: 4.9,
+    count: 0,
     googleMapsUrl:
       'https://www.google.com/maps/place/Ralph+Mann+%26+Sons+Inc/@41.3404,-73.0712,17z',
   },
 
   // ─── Trust Badges ────────────────────────────────────────
+  // Based on real certification logos on every page: BBB, GEO, NATE, CHCCA, IGSHPA, AHRI
   trustBadges: [
     { label: 'Since 1916', sub: '110 Years of Service', icon: 'Award' },
-    { label: 'Licensed & Insured', sub: 'HIC · HTG · PLM · ELC', icon: 'ShieldCheck' },
+    { label: 'Licensed & Insured', sub: 'All CT Trades', icon: 'ShieldCheck' },
     { label: 'NATE Certified', sub: 'Trained Technicians', icon: 'Star' },
+    { label: 'IGSHPA Certified', sub: 'Geothermal Specialists', icon: 'Leaf' },
     { label: '24-Hr Emergency', sub: '1-800-995-6266', icon: 'Clock' },
-    { label: '4th Generation', sub: 'Family-Owned Since 1916', icon: 'CheckCircle' },
   ],
 
   // ─── Services ────────────────────────────────────────────
+  // From real Schedule-a-Consultation form on the real site
   servicesHeadline: 'Complete Home Comfort Services',
-  servicesSubhead:
-    'From leaking pipes to a failing furnace — one call handles everything.',
+  servicesSubhead: 'Serving Homes & Businesses Across All of Connecticut Since 1916.',
   services: [
     {
       title: 'Plumbing',
       description:
-        'Leak detection, drain cleaning, pipe repair & replacement, water line installation, backflow prevention, and full residential plumbing service.',
-      cta: 'Plumbing Service',
+        'Clogged drains, sinks and toilet repairs, leaky pipe repair and replacement, gas hookups, sump pump installation, and more.',
+      cta: 'Learn More',
       icon: 'Droplets',
     },
     {
       title: 'Heating',
       description:
-        'Boiler & furnace installation, repair, and maintenance. Oil-to-gas conversions. We keep your home warm all winter long.',
-      cta: 'Heating Service',
+        'Boiler and furnace installation, repair, and maintenance. Oil-to-gas and heat pump conversions.',
+      cta: 'Learn More',
       icon: 'Flame',
     },
     {
       title: 'Air Conditioning',
       description:
-        'Central AC installation, maintenance, and repair. Energy-efficient systems that keep your home cool without breaking the bank.',
-      cta: 'AC Service',
+        'Central air conditioning installation and repair for homes and businesses in Ansonia, Orange, Woodbridge, Fairfield, Weston, Westport, Newtown CT.',
+      cta: 'Learn More',
       icon: 'Snowflake',
     },
     {
       title: 'Standby Generators',
       description:
-        'Never lose power again. We install whole-home standby generators so your family stays safe and comfortable during any outage.',
-      cta: 'Generator Install',
+        'Whole-home standby generator installation and service so your family stays safe during any outage.',
+      cta: 'Learn More',
       icon: 'Zap',
+    },
+    {
+      title: 'Indoor Air Quality',
+      description:
+        'Whole-home air quality solutions for a healthier, more comfortable home environment.',
+      cta: 'Learn More',
+      icon: 'Wind',
     },
     {
       title: 'Water Heaters',
       description:
-        'Tank, tankless (on-demand), heat pump, and indirect-fired water heaters. Installation, repair, and replacement.',
-      cta: 'Water Heaters',
+        'Tank, tankless (on-demand), and indirect-fired water heater installation, repair, and replacement.',
+      cta: 'Learn More',
       icon: 'Thermometer',
     },
     {
       title: 'Geothermal',
       description:
-        'Green energy heating & cooling using the earth\'s natural temperature. Dramatic energy savings with IGSHPA-certified installation.',
-      cta: 'Geothermal Info',
+        'IGSHPA-certified geothermal heat pump installation. 50–70% energy savings. COP ratings of 3.0–4.5.',
+      cta: 'Learn More',
       icon: 'Leaf',
-    },
-    {
-      title: 'Indoor Air Quality',
-      description:
-        'Whole-home air filtration, humidifiers, dehumidifiers, and UV purifiers. Breathe cleaner, healthier air every day.',
-      cta: 'Air Quality',
-      icon: 'Wind',
     },
     {
       title: 'Fuel Oil Delivery',
       description:
-        'Reliable home heating oil delivery to keep your tank full all winter. Flexible delivery schedules and competitive pricing.',
-      cta: 'Oil Delivery',
+        'Reliable home heating oil delivery throughout the Naugatuck Valley with automatic and will-call programs.',
+      cta: 'Learn More',
       icon: 'Truck',
     },
   ],
 
-  // ─── Why Choose Us ───────────────────────────────────────
+  // ─── Why Choose Us — content from the real About page ────
   whyUs: {
     yearsInBusiness: 110,
-    yearsLabel: 'Years Serving Southern CT',
-    headline: 'Four Generations. One Family. 110 Years of Trust.',
-    body: 'Ralph Mann & Sons was founded in 1916 and has been serving the Ansonia, CT community ever since. Now in its 4th generation of family ownership, we bring over a century of expertise to every job — whether it\'s a clogged drain, a failed furnace, or a whole-home generator installation.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop',
-    imageAlt: 'Ralph Mann & Sons HVAC and plumbing technician serving Ansonia CT',
+    yearsLabel: 'Years Serving Connecticut',
+    headline: 'A Difference You Can See And A Name You Can Trust.',
+    body: 'In 1916, indoor plumbing and central heating were for many people just a dream. Ralph Mann realized he had the vision to make this dream a reality. Over 100 years later, that vision continues — now in its 4th generation of family ownership. Honesty, integrity, fairness and uncompromised craftsmanship are the ingredients you\'ll find in every minute of service we provide.',
+    imageUrl: '/rm-images/expert-technicians.jpg',
+    imageAlt: 'Ralph Mann & Sons technician serving Ansonia CT',
     benefits: [
       'Family-Owned & Operated Since 1916',
-      'Licensed: HIC · HTG · PLM · ELC',
+      'Licensed for Plumbing, HVAC, Electric & More',
       '24-Hour Emergency Service — 1-800-995-6266',
-      'NATE & GEO Certified Technicians',
-      'Serving 14+ towns in Southern CT',
-      'Financing & Federal Tax Credits Available',
+      'NATE & IGSHPA Certified Technicians',
+      'Serving All of Connecticut',
+      'Manufacturer Rebates, Tax Credits & Utility Rebates Available',
     ],
     ctaLabel: 'Call 1-800-995-6266',
   },
 
-  // ─── Process ─────────────────────────────────────────────
-  processHeadline: 'How We Work',
-  processSubhead:
-    'Simple, transparent service — from your first call to the finished job.',
-  process: [
-    {
-      number: '01',
-      icon: 'Phone',
-      title: 'Call or Request Online',
-      description:
-        'Call 1-800-995-6266 or submit a request online. For emergencies, we respond 24 hours a day, 7 days a week.',
-    },
-    {
-      number: '02',
-      icon: 'ClipboardList',
-      title: 'Fast Scheduling',
-      description:
-        'We offer same-day and next-day appointments for most jobs across our 14-town service area.',
-    },
-    {
-      number: '03',
-      icon: 'Wrench',
-      title: 'Honest Diagnosis',
-      description:
-        'Our licensed technician arrives on time, diagnoses the issue, and gives you upfront pricing before any work begins.',
-    },
-    {
-      number: '04',
-      icon: 'CheckCircle2',
-      title: 'Expert Service',
-      description:
-        'Work completed by licensed, insured Ralph Mann technicians — to code, done right, guaranteed.',
-    },
-    {
-      number: '05',
-      icon: 'MessageSquare',
-      title: 'We Follow Up',
-      description:
-        "We check in after every job to make sure you're completely satisfied. 110 years of happy customers can't be wrong.",
-    },
-  ],
-
-  // ─── Maintenance Plan ────────────────────────────────────
-  maintenancePlan: {
-    name: 'Ralph Mann Service Agreement',
-    tagline: 'Annual Maintenance Plan',
-    description:
-      'Protect your heating, cooling, and plumbing investment with a Ralph Mann Service Agreement. Regular maintenance catches problems before they become expensive emergencies.',
-    priceMonthly: 14,
-    priceAnnual: 159,
-    memberCount: 200,
-    benefits: [
-      'Annual heating & cooling tune-up',
-      'Priority emergency scheduling',
-      '15% discount on all repairs and parts',
-      'Filter replacements included',
-      'Extends equipment lifespan by 5–7 years',
-      'No overtime surcharge for priority service',
-    ],
-    highlights: [
-      { icon: 'Clock', text: 'Priority scheduling — always first in line' },
-      { icon: 'Zap', text: 'Prevent 90% of system failures before they happen' },
-      { icon: 'CheckCircle2', text: 'Members save $400+ per year on average' },
-    ],
-  },
-
-  // ─── Testimonials ────────────────────────────────────────
+  // ─── Testimonials — 5 real Google My Business reviews ────
+  // Source: Google Maps listing — Ralph Mann & Sons Inc, Ansonia CT
   testimonials: [
     {
-      name: 'Surreybrook School',
-      town: 'Bethany, CT',
-      service: 'HVAC Replacement',
+      name: 'John DeLeo',
+      town: 'Google Review',
+      service: 'AC System Installation',
       content:
-        'Ralph Mann & Sons replaced our entire HVAC system. The team was professional, organized, and completed the work on schedule. We have relied on them for years and will continue to do so.',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg',
+        'I had an entire home AC system installed by Ralph Mann & Sons. The experience and quality from the sales process, to install, to post install follow-up has been nothing short of excellence. The system that was designed for my home is efficient and works perfectly. What impressed me most was the extra time the installers spent figuring out the best way to run all the lines and wiring so it was minimally invasive and kept everything nice and neat.',
+      image: '',
     },
     {
-      name: 'Michael T.',
-      town: 'Ansonia, CT',
-      service: 'Emergency Plumbing',
+      name: 'Michael Skiber',
+      town: 'Google Review',
+      service: 'Geothermal HVAC',
       content:
-        'Had a burst pipe at 2am on a Saturday. Called the 800 number and someone actually picked up. They had a plumber at my house within 90 minutes. Couldn\'t believe it. Saved my basement.',
-      image: 'https://randomuser.me/api/portraits/men/32.jpg',
+        "Can't say enough great things about this company. I was the victim of an unscrupulous geo-thermal company who underbid my job and left me with a system that was too small to cool and heat. Kevin and Craig jumped on it right away and fixed the problem with meticulous detail and great performance. Highly recommend for any HVAC project!",
+      image: '',
     },
     {
-      name: 'Patricia L.',
-      town: 'Derby, CT',
-      service: 'Furnace Replacement',
+      name: 'Carolyn Keating',
+      town: 'Google Review',
+      service: 'Geothermal System',
       content:
-        'They replaced my oil furnace with a gas system. Craig and his team were honest about all my options — they even recommended the less expensive option when it made sense. Rare to find that.',
-      image: 'https://randomuser.me/api/portraits/women/68.jpg',
+        'We needed AC for our house, and after extensively researching options and contractors, I decided on a geothermal system since we would have to soon replace our boiler and I wanted to get off oil. I picked Ralph Mann & Sons to do the research and they were excellent.',
+      image: '',
     },
     {
-      name: 'James W.',
-      town: 'Seymour, CT',
-      service: 'Generator Installation',
+      name: 'Scott Carroll',
+      town: 'Google Review',
+      service: 'Water Heater Replacement',
       content:
-        'Installed a whole-home standby generator for us. Professional from start to finish. We used it twice during storms last winter and it performed perfectly. Best home investment we ever made.',
-      image: 'https://randomuser.me/api/portraits/men/22.jpg',
+        'Ralph Mann and sons are just amazing. I had to replace my hot water heater and I called many local HVAC companies only to be floored by their estimates. My friend told me about Ralph Mann so I called. Melissa took great care of my call and the team was very professional.',
+      image: '',
     },
     {
-      name: 'Sandra M.',
-      town: 'Milford, CT',
-      service: 'Annual Tune-Up',
+      name: 'Andrew Vanam',
+      town: 'Google Review',
+      service: 'HVAC Service',
       content:
-        'Been using Ralph Mann for 15 years. Always shows up on time, always honest, and never pushes unnecessary work. When a company has been around since 1916, they know what they are doing.',
-      image: 'https://randomuser.me/api/portraits/women/55.jpg',
-    },
-    {
-      name: 'Tony G.',
-      town: 'Woodbridge, CT',
-      service: 'Water Heater Install',
-      content:
-        'They installed a tankless water heater and the difference is remarkable. Hot water on demand and my energy bill dropped noticeably. The install was clean and done in half a day.',
-      image: 'https://randomuser.me/api/portraits/men/61.jpg',
+        'Paul and his team came by and did a stellar job. They were professional, efficient, and very knowledgeable. Awesome guys and I definitely recommend them.',
+      image: '',
     },
   ],
 
   // ─── Contact Form Services ────────────────────────────────
+  // Taken exactly from the Schedule-a-Consultation form on ralphmannandsons.com
   contactFormServices: [
     'Plumbing',
-    'Heating / Furnace',
+    'Heating',
     'Air Conditioning',
-    'Standby Generator',
-    'Water Heater',
-    'Geothermal',
-    'Indoor Air Quality',
+    'Electric',
+    'Standby Generators',
+    'Natural Gas Conversions',
+    'Gas Fireplace',
+    'Indoor Air Quality (IAQ)',
+    'Water Heaters',
     'Fuel Oil Delivery',
-    'Emergency Service',
-    'Other / Not Sure',
+    'Other',
   ],
 
-  // ─── FAQ ─────────────────────────────────────────────────
-  faqs: [
-    {
-      question: 'Do you offer 24-hour emergency service?',
-      answer:
-        'Yes. Ralph Mann & Sons provides 24-hour emergency service for plumbing, heating, and cooling failures. Call 1-800-995-6266 any time — a real person answers.',
-    },
-    {
-      question: 'What areas do you serve?',
-      answer:
-        'We serve Ansonia, Derby, Seymour, Orange, Woodbridge, Fairfield, Weston, Westport, Newtown, Bethany, Beacon Falls, Milford, Oxford, and more across Naugatuck Valley, New Haven & Fairfield County.',
-    },
-    {
-      question: 'Are you licensed and insured?',
-      answer:
-        'Yes. We are fully licensed in Connecticut for HVAC (HTG.0303047-S1), Plumbing (PLM.0203557-P1), Electrical (ELC.0123595-E1), and Home Improvement (HIC.0504051). Fully insured.',
-    },
-    {
-      question: 'How long have you been in business?',
-      answer:
-        'Ralph Mann & Sons was founded in 1916 — making us a 110-year-old, 4th-generation family business. We have one of the longest track records of any home services company in Connecticut.',
-    },
-    {
-      question: 'Do you offer financing?',
-      answer:
-        'Yes. We offer flexible financing options to make new systems affordable. Additionally, there are up to $3,200 in federal tax credits available for energy-efficient upgrades. Ask us when you call.',
-    },
-    {
-      question: 'What brands do you install and service?',
-      answer:
-        'We work with American Standard, Rinnai, Kohler, Moen, AO Smith, Bradford White, and many other top brands. We are certified to install and service all major manufacturers.',
-    },
-    {
-      question: 'Can you convert my oil system to gas or a heat pump?',
-      answer:
-        'Absolutely. We specialize in oil-to-gas conversions and heat pump conversions. These upgrades can qualify for up to $750 off plus federal tax credits. Call for a free consultation.',
-    },
-  ],
-
-  // ─── Service Area ─────────────────────────────────────────
+  // ─── Service Area ───────────────────────────────────────────
+  // Confirmed from multiple real pages: homepage (7 towns), water heaters page, heating page
   serviceAreaTowns: [
-    'Ansonia', 'Derby', 'Seymour', 'Orange',
-    'Woodbridge', 'Fairfield', 'Weston', 'Westport',
-    'Newtown', 'Bethany', 'Beacon Falls', 'Milford',
-    'Oxford', 'Naugatuck',
+    'Ansonia', 'Orange', 'Woodbridge', 'Fairfield',
+    'Weston', 'Westport', 'Newtown', 'Shelton',
+    'Derby', 'Naugatuck', 'Oxford', 'Beacon Falls',
   ],
 
   // ─── Footer ──────────────────────────────────────────────
   footerTagline:
-    'Ralph Mann & Sons is a 4th-generation family company in Ansonia, CT serving southern Connecticut since 1916. Plumbing, heating, air conditioning, generators, geothermal & fuel oil delivery.',
-  footerAwards: 'NATE Certified · BBB Accredited · GEO Member · AHRI Member · Google Rating 4.8 ⭐',
+    'Ralph Mann & Sons, Inc. is a 4th-generation family company in Ansonia, CT serving Connecticut since 1916. Plumbing, heating, air conditioning, generators, geothermal & fuel oil delivery.',
+  footerAwards: 'BBB Accredited · NATE Certified · IGSHPA Member · AHRI Member · GEO Member · CHCCA Member',
 };

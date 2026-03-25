@@ -140,13 +140,13 @@ export interface SiteConfig {
     ctaLabel: string;
   };
 
-  // ─── How It Works (Pattern 9) ────────────────────────────
-  process: SiteProcessStep[];
-  processHeadline: string;
-  processSubhead: string;
+  // ─── How It Works (Pattern 9) — optional ───────────────────
+  process?: SiteProcessStep[];
+  processHeadline?: string;
+  processSubhead?: string;
 
-  // ─── Maintenance Plan (Pattern 6) ────────────────────────
-  maintenancePlan: SiteMaintenancePlan;
+  // ─── Maintenance Plan (Pattern 6) — optional ───────────────
+  maintenancePlan?: SiteMaintenancePlan;
 
   // ─── Testimonials (Pattern 10) ───────────────────────────
   testimonials: SiteTestimonial[];
@@ -154,8 +154,8 @@ export interface SiteConfig {
   // ─── Contact Form ────────────────────────────────────────
   contactFormServices: string[];     // Dropdown options
 
-  // ─── FAQ ─────────────────────────────────────────────────
-  faqs: SiteFAQ[];
+  // ─── FAQ — optional ──────────────────────────────────────
+  faqs?: SiteFAQ[];
 
   // ─── Service Area (Pattern 8) ────────────────────────────
   serviceAreaTowns: string[];

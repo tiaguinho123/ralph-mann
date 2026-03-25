@@ -1,21 +1,23 @@
 import ServicePage from './ServicePage';
 import { CheckCircle2 } from 'lucide-react';
 
+// Ralph Mann & Sons — Cooling / AC Services
+// Content based on original site air-conditioning page
 export default function CoolingPage() {
   return (
     <ServicePage
-      title="Cooling"
-      subtitle="Air Conditioning · Humidity Control · Peak Efficiency"
-      heroImage="https://neas-hvac.com/wp-content/uploads/2019/01/Cooling-Large-1-1280x580.jpg"
-      heroImageAlt="NEAS Cooling — AC service and installation in Danbury CT"
+      title="Air Conditioning & Cooling"
+      subtitle="Residential and Commercial AC — Ansonia, Orange, Woodbridge, Fairfield, Weston, Westport, Newtown CT"
+      heroImage="/rm-images/air-conditioning.jpg"
+      heroImageAlt="Ralph Mann & Sons air conditioning and cooling service — Connecticut"
       content={
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Cooling Services</h2>
-          <div className="w-12 h-1 rounded-full mb-8" style={{ backgroundColor: '#CE1126' }} />
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Air Conditioning &amp; Cooling Services</h2>
+          <div className="w-12 h-1 rounded-full mb-8" style={{ backgroundColor: '#c0392b' }} />
 
           <img
-            src="https://neas-hvac.com/wp-content/uploads/2019/01/Cooling.jpg"
-            alt="NEAS Cooling — air conditioning systems"
+            src="/rm-images/bg-ac.jpg"
+            alt="Ralph Mann & Sons air conditioning service unit"
             className="w-full rounded-2xl mb-8 object-cover"
             style={{ maxHeight: '360px' }}
             loading="lazy"
@@ -23,35 +25,45 @@ export default function CoolingPage() {
           />
 
           <p className="text-slate-600 text-lg leading-relaxed mb-6">
-            NEAS makes sure your air conditioner meets your expectations day in and day out. Precise temperature control, ideal humidity levels, clean air, and peak efficiency — that's what we deliver for Danbury homeowners every summer.
-          </p>
-          <p className="text-slate-600 text-lg leading-relaxed mb-8">
-            Our experienced technicians service all major brands and models, from central air conditioning systems to ductless mini-splits. Whether you need a quick repair or a full system replacement, we've got you covered.
+            At Ralph Mann &amp; Sons, Inc., we install the right AC equipment for homeowners and businesses across
+            Connecticut. An energy-efficient air conditioning system installation can start with a brand-new system
+            or a replacement of an older system. Let us put our 110 years of experience to work for you!
           </p>
 
-          <h3 className="text-xl font-bold text-slate-900 mb-4">Our Cooling Services Include:</h3>
+          <h3 className="text-xl font-bold text-slate-900 mb-4">Our Cooling Services Include</h3>
           <ul className="space-y-3 mb-8">
             {[
-              'Central air conditioning service and repair',
-              'New AC system installation',
-              'Ductless mini-split installation and repair',
+              'Central air conditioning installation and repair',
+              'New AC system design and installation',
+              'Ductless mini-split installation and service',
               'Refrigerant recharge and leak detection',
               'Precise temperature and humidity control',
-              'Annual AC tune-ups and maintenance',
-              'Emergency cooling service — 24 hours',
-              'All major brands: Carrier, Lennox, Trane & more',
+              'Annual AC tune-ups and preventive maintenance',
+              'Emergency cooling service — 24 hours a day',
+              'System load calculation and equipment selection',
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#CE1126' }} aria-hidden="true" />
+                <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#c0392b' }} aria-hidden="true" />
                 <span className="text-slate-700">{item}</span>
               </li>
             ))}
           </ul>
 
-          <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-            <h3 className="text-lg font-bold text-slate-900 mb-3" style={{ color: '#003DA5' }}>Peak Efficiency</h3>
+          <h3 className="text-xl font-bold text-slate-900 mb-4">Preferred Brands</h3>
+          <div className="flex flex-wrap gap-2 mb-8">
+            {['American Standard', 'Water Furnace', 'Midea', 'Fujitsu', 'Trane', 'Honeywell', 'Aprilaire', 'Bryant', 'LG'].map((brand) => (
+              <span key={brand} className="px-3 py-1 text-sm rounded-full bg-slate-100 text-slate-700 font-medium border border-slate-200">
+                {brand}
+              </span>
+            ))}
+          </div>
+
+          <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Service Area</h3>
             <p className="text-slate-600 leading-relaxed">
-              A well-maintained air conditioning system uses significantly less energy. Ask us about high-efficiency replacement systems that can reduce your cooling costs by 20–30% annually.
+              We serve Ansonia, Orange, Woodbridge, Fairfield, Weston, Westport, and Newtown, CT — and all of
+              Connecticut. Call <strong>1-800-995-6266</strong> to schedule a free consultation. Same-day service
+              available for emergencies.
             </p>
           </div>
         </div>

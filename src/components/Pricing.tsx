@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
 
 const plans = [
@@ -88,8 +89,8 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#contact"
+              <Link
+                to="/contact-us"
                 className={`block w-full py-4 px-6 rounded-xl text-center font-semibold transition-colors ${
                   plan.popular
                     ? 'bg-white text-blue-600 hover:bg-slate-50'
@@ -97,7 +98,7 @@ export default function Pricing() {
                 }`}
               >
                 Book Now
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>

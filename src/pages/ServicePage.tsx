@@ -1,4 +1,5 @@
 // Shared layout component used by all service pages
+import type { ReactNode } from 'react';
 import { motion } from 'motion/react';
 import { Phone, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ interface ServicePageProps {
   subtitle?: string;
   heroImage: string;
   heroImageAlt: string;
-  content: React.ReactNode;
+  content: ReactNode;
 }
 
 export default function ServicePage({ title, subtitle, heroImage, heroImageAlt, content }: ServicePageProps) {
@@ -45,36 +46,37 @@ export default function ServicePage({ title, subtitle, heroImage, heroImageAlt, 
       {/* Content */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Main content */}
+            <div className="lg:col-span-2 order-2 lg:order-1">
               {content}
             </div>
 
-            {/* Sidebar */}
-            <aside className="space-y-6">
+            {/* Sidebar — shown above content on mobile, right column on desktop */}
+            <aside className="space-y-6 order-1 lg:order-2">
               {/* CTA Card */}
               <div className="rounded-2xl p-6 text-white text-center shadow-lg" style={{ backgroundColor: '#CE1126' }}>
                 <p className="font-bold text-xl mb-3">Request a Free Estimate</p>
                 <p className="text-white/85 text-sm mb-5">No obligation. Licensed technicians. Honest pricing.</p>
                 <Link to="/contact-us"
-                  className="block w-full py-3 bg-white font-bold rounded-lg text-base transition-colors hover:bg-slate-100 mb-3"
-                  style={{ color: '#CE1126' }}
+                  className="flex w-full py-3 bg-white font-bold rounded-lg text-base transition-colors hover:bg-slate-100 mb-3 items-center justify-center gap-1"
+                  style={{ color: '#c0392b' }}
                 >
-                  <Calendar className="w-4 h-4 inline mr-1" aria-hidden="true" />
+                  <Calendar className="w-4 h-4" aria-hidden="true" />
                   Schedule Online
                 </Link>
                 <a href={`tel:${phone}`}
-                  className="block w-full py-3 border-2 border-white text-white font-bold rounded-lg text-base hover:bg-white transition-colors"
-                  onMouseOver={(e) => { (e.currentTarget as HTMLElement).style.color = '#CE1126'; }}
+                  className="flex w-full py-3 border-2 border-white text-white font-bold rounded-lg text-base hover:bg-white transition-colors items-center justify-center gap-1"
+                  onMouseOver={(e) => { (e.currentTarget as HTMLElement).style.color = '#c0392b'; }}
                   onMouseOut={(e) => { (e.currentTarget as HTMLElement).style.color = 'white'; }}
                 >
-                  <Phone className="w-4 h-4 inline mr-1" aria-hidden="true" />
+                  <Phone className="w-4 h-4" aria-hidden="true" />
                   {phoneFormatted}
                 </a>
               </div>
 
               {/* 24 Hour Emergency */}
-              <div className="rounded-2xl p-6 text-white" style={{ backgroundColor: '#003DA5' }}>
+              <div className="rounded-2xl p-6 text-white" style={{ backgroundColor: '#1c2e6e' }}>
                 <p className="font-bold text-lg mb-2">24 Hour Emergency Service</p>
                 <p className="text-white/80 text-sm mb-4">Our team is on call around the clock for heating and cooling emergencies.</p>
                 <a href={`tel:${phone}`} className="font-bold text-white text-xl hover:underline">{phoneFormatted}</a>
@@ -84,10 +86,14 @@ export default function ServicePage({ title, subtitle, heroImage, heroImageAlt, 
               <div className="rounded-2xl border border-slate-200 overflow-hidden">
                 <p className="font-bold text-slate-900 px-5 py-4 bg-slate-50 border-b border-slate-200 text-sm uppercase tracking-wider">Our Services</p>
                 {[
+                  { label: 'Plumbing', path: '/plumbing' },
                   { label: 'Heating', path: '/heating' },
-                  { label: 'Cooling', path: '/cooling' },
+                  { label: 'Air Conditioning', path: '/air-conditioning' },
+                  { label: 'Standby Generators', path: '/generators' },
+                  { label: 'Water Heaters', path: '/water-heaters' },
+                  { label: 'Geothermal', path: '/geothermal' },
                   { label: 'Indoor Air Quality', path: '/indoor-air-quality' },
-                  { label: 'Comfort Controls', path: '/comfort-controls' },
+                  { label: 'Fuel Oil Delivery', path: '/fuel-oil' },
                   { label: 'Financing', path: '/financing' },
                 ].map((s) => (
                   <Link key={s.path} to={s.path} className="block px-5 py-3 border-b border-slate-100 last:border-0 text-slate-700 hover:text-[#CE1126] hover:bg-red-50/50 transition-colors text-sm font-medium">

@@ -19,15 +19,15 @@ export default function ContactForm() {
           <h2 className="font-semibold tracking-wide uppercase mb-3 text-sm" style={{ color: colors.primaryHex }}>
             Get In Touch
           </h2>
-          <h3 id="contact-heading" className="text-4xl font-bold text-white mb-6">Request Your Free Estimate</h3>
-          <p className="text-lg text-slate-400">No pressure, no obligation. We'll assess your situation and give you an honest recommendation.</p>
+          <h3 id="contact-heading" className="text-4xl font-bold text-white mb-6">Schedule a Consultation</h3>
+          <p className="text-lg text-slate-400">Let one of our trained technicians come to your location and discuss your job.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Info */}
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-8">
             {[
-              { icon: Phone, label: 'Call or Text', value: phoneFormatted, href: `tel:${phone}`, sub: 'Available Mon–Sat, 7am–7pm' },
+              { icon: Phone, label: 'Call Us', value: phoneFormatted, href: `tel:${phone}`, sub: `${hours.weekdays} · ${hours.saturday}` },
               { icon: Mail, label: 'Email Us', value: email, href: `mailto:${email}`, sub: null },
               { icon: MapPin, label: 'Address', value: `${address.street}, ${address.city}, ${address.state} ${address.zip}`, href: null, sub: null },
             ].map((item, i) => (

@@ -1,8 +1,10 @@
 import { motion } from 'motion/react';
+import type { ElementType } from 'react';
+import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Shield, Clock, Zap } from 'lucide-react';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
-const highlightIconMap: Record<string, React.ElementType> = {
+const highlightIconMap: Record<string, ElementType> = {
   Clock, Zap, CheckCircle2, Shield,
 };
 
@@ -19,9 +21,7 @@ export default function MaintenancePlan() {
               {plan.tagline}
             </h2>
             <h3 id="plan-heading" className="text-4xl font-bold text-slate-900 mb-4 leading-tight">
-              The {plan.name === 'Comfort Club' ? (
-                <>The <span style={{ color: colors.primaryHex }}>{plan.name}</span></>
-              ) : plan.name}
+              {plan.name}
             </h3>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">{plan.description}</p>
 
@@ -35,19 +35,19 @@ export default function MaintenancePlan() {
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg"
-                style={{ backgroundColor: colors.primaryHex, color: '#0F172A' }}
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg text-white"
+                style={{ backgroundColor: colors.primaryHex }}
               >
                 Join the {plan.name}
                 <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
-              </a>
+              </Link>
               <a
                 href={`tel:${phone}`}
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl border-2 border-slate-200 text-slate-700 hover:border-amber-400 hover:text-amber-600 transition-all"
               >
-                Ask Us About It
+                Call {phoneFormatted}
               </a>
             </div>
           </motion.div>
@@ -89,13 +89,13 @@ export default function MaintenancePlan() {
                 })}
               </div>
 
-              <a
-                href="#contact"
-                className="block w-full text-center py-4 px-6 font-bold text-lg rounded-xl transition-all hover:opacity-90"
-                style={{ backgroundColor: colors.primaryHex, color: '#0F172A' }}
+              <Link
+                to="/contact-us"
+                className="block w-full text-center py-4 px-6 font-bold text-lg rounded-xl transition-all hover:opacity-90 text-white"
+                style={{ backgroundColor: colors.primaryHex }}
               >
                 Join for ${plan.priceMonthly}/month
-              </a>
+              </Link>
               <p className="text-center text-xs text-slate-500 mt-3">Cancel anytime · No setup fee</p>
             </div>
           </motion.div>

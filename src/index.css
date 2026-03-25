@@ -8,6 +8,11 @@
 /* Smooth scroll with reduced motion respect */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -39,9 +44,7 @@ img {
   max-width: 100%;
 }
 
-/* Improve tap target size on mobile */
+/* Improve tap target size on mobile — no display override (would break Tailwind hidden class in v4) */
 button, a {
   min-height: 44px;
-  display: inline-flex;
-  align-items: center;
 }
